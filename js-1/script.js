@@ -60,11 +60,9 @@ console.log(a / b);
 // modul operator - ostatok pri delenje
 console.log(b % a);
 
-
 let x = 81297
 
 console.log(x % 2);
-
 
 let age = 17
 
@@ -131,6 +129,45 @@ if (broj % 3 == 0 && broj % 5 == 0) {
     console.log(`Vnesovte broj: ${broj}, ne e deliv so 3 i 5`);
 }
 
+broj = 18
+
+if (broj % 3 == 0 && broj % 6 == 0) {
+    console.log("FizzBuzz");
+} else if (broj % 3 == 0) {
+    console.log(`Fizz`)
+} else if (broj % 5 == 0) {
+    console.log(`Buzz`);
+} else {
+    console.log(`Vnesovte broj: ${broj}, ne e deliv so 3 i 5`);
+}
+
+
+broj = 30
+
+if (broj % 3 == 0 && broj % 5 == 0) {
+    console.log("FizzBuzz");
+} else if (broj % 3 == 0) {
+    console.log(`Fizz`)
+} else if (broj % 5 == 0) {
+    console.log(`Buzz`);
+} else {
+    console.log(`Vnesovte broj: ${broj}, ne e deliv so 3 i 5`);
+}
+
+
+broj = 50
+
+if (broj % 3 == 0 && broj % 5 == 0) {
+    console.log("FizzBuzz");
+} else if (broj % 3 == 0) {
+    console.log(`Fizz`)
+} else if (broj % 5 == 0) {
+    console.log(`Buzz`);
+} else {
+    console.log(`Vnesovte broj: ${broj}, ne e deliv so 3 i 5`);
+}
+
+
 // if (broj % 3 == 0 && broj % 5 == 0) {
 //     console.log("FizzBuzz");
 // }
@@ -184,7 +221,7 @@ switch (day) {
         break;
 }
 
-// 5 if/else flows 
+// 5 if/else flows
 // 1 switch
 // x broj deliv so y
 // broj dali e paren ili neparen
