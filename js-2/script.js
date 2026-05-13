@@ -15,7 +15,6 @@ greetUser("Ognen")
 greetUser("Valentin")
 greetUser("Nikola")
 
-
 function fizzBuzz(broj) {
     if (broj % 3 == 0 && broj % 5 == 0) {
         console.log(`FizzBuzz`);
@@ -40,17 +39,22 @@ function add(a, b) {
     console.log(`Zbirot na ${a} i ${b} e: ${a + b}`);
 }
 
-add(2, 5)
+// let zbir7 = add(2, 5)
+// console.log(zbir7);
 add(5332, 9123)
+add(5635, -123)
+
 
 function addReturn(a, b) {
     return a + b
 }
 
-
 let zbir = addReturn(12, 9)
 
-console.log(zbir);
+console.log(zbir * zbir);
+
+const novZbir = addReturn(zbir, 150)
+console.log(`nov zbir: ${novZbir}`);
 
 let c = addReturn(5332, 9123)
 
@@ -65,7 +69,6 @@ function celsiusToFahrenheit(c) {
 }
 
 console.log(celsiusToFahrenheit(25));
-
 
 let f = celsiusToFahrenheit(25)
 console.log(f);
@@ -151,9 +154,9 @@ console.log(movie1.title);
 console.log(movie1.director);
 console.log(movie1.rating);
 
-
 console.log("------------------");
 
+// const allMovies = [movie4, movie5,movi6, movie7,movie1, movie2, movie3]
 const favoriteMovies = [movie1, movie2, movie3]
 
 console.log(favoriteMovies);
@@ -161,7 +164,7 @@ console.log(favoriteMovies);
 // console.log(movie3.baseImage.a.b.d);
 
 // index od 0 do n-1 (n e dolzinata na nizata)
-const numbers = [124,-12, 2436, 12124, 9834, 92, 5]
+const numbers = [124, -12, 2436, 12124, 9834, 92, 5]
 
 console.log(numbers);
 console.log(numbers.length);
@@ -174,7 +177,7 @@ console.log("--------------");
 // for ciklus
 let sum = 0
 
-for(let i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     // sum = sum + numbers[i]
     sum += numbers[i]
 }
