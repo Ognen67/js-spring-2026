@@ -1,0 +1,39 @@
+#posts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.post {
+    background-color: lightblue;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+}
+
+.even {
+    background-color: rgb(139, 169, 179);
+}
+
+.post:hover {
+    box-shadow: 0px 0px 15px 1px gray;
+}
+
+.absolute {
+    display: none;
+    position: absolute;
+    width: 50px;
+    top: 5px;
+    right: 5px;
+}
+
+.post:hover .absolute{
+    display: block;
+}
+
+@media screen and (width < 1200px) {
+    #posts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+}

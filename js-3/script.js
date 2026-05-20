@@ -41,7 +41,6 @@ for (let i = 0; i < students.length; i++) {
         // console.log(students[i]);
         // logStudent(students[i])
         // console.log(`Studentot so ime ${students[i].name}, i prezime ${students[i].surname} ima prosek ${students[i].avg} i moze da aplicira za stipenidja`);
-
         students[i].print()
     }
 }
@@ -70,7 +69,15 @@ students.forEach(function (student) {
     student.print()
 })
 
-students.forEach(student => student.print())
+students.forEach(function (student) {
+    student.print()
+})
+
+function printStudent(student) {
+    student.print()
+}
+
+// const printStudent = (student) => student.print()
 
 let broj = 0
 avgSum = 0
@@ -158,20 +165,27 @@ fruits.forEach(function (fruit) {
     console.log(fruit);
 })
 
-fruits.forEach(fruit => {
+const result = fruits.forEach(fruit => {
     console.log(fruit);
 })
 
-const numbers = [1, 2, 3, 4, 5]
+console.log("+++");
+console.log(result);
 
+const numbers = [124, 621, 123, 9013, 12315, -1235, 64524]
 
+// verbose
 // const doubledNumbers = numbers.map(number => {
 //     return number * 2
 // })
 
-const doubledNumbers = numbers.map(number => number * number)
+numbers.map(n => n * n)
+    .filter(n => n % 2 === 0)
+    .forEach(n => console.log(n))
 
-console.log(doubledNumbers);
+
+// console.log(numbers);
+// console.log(doubledNumbers);
 
 // const highAvg = students.filter(s => {
 //     return s.avg > 8
@@ -186,11 +200,12 @@ console.log(topStudent);
 
 // console.log(highAvg);
 
-let sumAvg = students.reduce((acc, s) => acc + s.avg, 0)
-console.log((sumAvg/students.length).toFixed(1));
+const sumAvg = students.reduce((avgSum, s) => avgSum + s.avg, 0)
+console.log((sumAvg / students.length).toFixed(1));
 
 // - Анализа на низа градови
 // - Подреди по популација
 // - Кои се трите најнаселени градови
 // - Сите градови што почнуваат на А и имаат над милион жители
 // - Просек од вкупен број на жители од сите градови
+
