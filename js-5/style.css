@@ -1,3 +1,8 @@
+#title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: darkslategray;
+}
+
 #posts {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

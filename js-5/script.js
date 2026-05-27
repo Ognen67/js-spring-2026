@@ -37,9 +37,42 @@ function renderPosts(posts) {
             ${post.id % 2 !== 0 ?
             '<img class="absolute" src="https://media.istockphoto.com/id/1167494424/vector/red-vector-sticker-on-sale-now.jpg?s=612x612&w=0&k=20&c=QMIXi66bOM4XiYEIamBp76tgAjhBNjWuINh67C91VO8="/>' : ''}
         </div>`).join("")
+
+        
+   const allPosts = Array.from(document.getElementsByClassName("post"))
+   
+
+   allPosts.forEach(post => {
+    console.log(post);
+    post.style = "border: 3px solid black"
+
+    // post.className += " test"
+    // post.classList.add("test")
+    post.classList.toggle("even")
+    console.log(post.classList);
+
+    post.addEventListener('click', () => {
+        // alert("Post clicked")
+        post.classList.toggle("even")
+    })
+    
+   })
+   
 }
 
 getPosts()
+
+// DOM - Document object model
+const titleEl = document.getElementById("title")
+titleEl.innerHTML = "<span>New title</span>"
+
+// document.getElementsByClassName()
+// document.getElementsByName()
+// document.getElementsByTagName()
+document.querySelector(".title")
+const query = document.querySelectorAll("#posts")
+console.log("query: ", query);
+
 
 
 // Free public api kako sto e "https://jsonplaceholder.typicode.com/posts"
