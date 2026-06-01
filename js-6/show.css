@@ -1,0 +1,26 @@
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#next-btn {
+    padding: 12px 24px;
+    background-color: darkgreen;
+    color: white;
+    font-size: 18px;
+}
+
+.show-content {
+    display: flex;
+    gap: 20px;
+}
+
+#episodes {
+    margin-top: 24px;
+}
+
+.episode {
+    display: flex;
+    gap: 12px;
+}

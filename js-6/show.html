@@ -3,11 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOW</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="show.css">
 </head>
 <body>
     
-    <div>
+    <a href="index.html">Back to all shows</a>
+    <div class="title-container">
         <h1 id="show-title"></h1>
         <button id="next-btn">Next Show</button>
     </div>
@@ -16,7 +17,9 @@
 
     </div>
 
-    <div id="episodes"></div>
+    <div id="episodes">
+        <h2>Episodes</h2>
+    </div>
     <!-- https://api.tvmaze.com/shows/1/episodes -->
 
     <script src="show.js"></script>

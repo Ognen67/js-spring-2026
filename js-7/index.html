@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Book Manager</h1>
+
+    <form id="form">
+        <label for="book-title">Book Title</label>
+        <input type="text" name="book-title">
+
+        <label for="book-author">Book Author</label>
+        <input type="text" name="book-author">
+
+        <label for="book-year">Book Year</label>
+        <input type="number" min="0" max="2026" step="1" name="book-year">
+
+        <label for="book-genre">Book Genre</label>
+        <select name="book-genre">
+            <option value="science-fiction">Science Fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="romance">Romance</option>
+            <option value="horror">Horror</option>
+        </select>
+
+        <button id="add-book" type="submit">Add Book</button>
+    </form>
+
+    <br>
+
+    <table id="books-table" border style="width: 100%;">
+        <thead>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Book Year</th>
+            <th>Book Genre</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr id="row-1780342665004">
+                <td>The Fellowship of the Ring</td>
+                <td>J.R.R. Tolkien</td>
+                <td>1954</td>
+                <td>fantasy</td>
+                <td>
+                    <button onclick="editRow('row-1780342665004')">Edit</button>
+                    <button onclick="deleteRow('row-1780342665004')">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
