@@ -8,3 +8,9 @@
 .edit-btn {
     background-color: lightgreen;
 }
+
+.dark,
+.dark * {
+    background: #111;
+    color: #d46d6d
+}

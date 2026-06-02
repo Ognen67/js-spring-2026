@@ -8,17 +8,19 @@
 </head>
 
 <body>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
     <h1>Book Manager</h1>
 
     <form id="form">
         <label for="book-title">Book Title</label>
-        <input type="text" name="book-title">
+        <input type="text" required name="book-title">
 
         <label for="book-author">Book Author</label>
-        <input type="text" name="book-author">
+        <input type="text" required name="book-author">
 
         <label for="book-year">Book Year</label>
-        <input type="number" min="0" max="2026" step="1" name="book-year">
+        <input type="number" min="0" max="2026" step="1" required name="book-year">
 
         <label for="book-genre">Book Genre</label>
         <select name="book-genre">
@@ -43,16 +45,6 @@
             <th>Actions</th>
         </thead>
         <tbody>
-            <tr id="row-1780342665004">
-                <td>The Fellowship of the Ring</td>
-                <td>J.R.R. Tolkien</td>
-                <td>1954</td>
-                <td>fantasy</td>
-                <td>
-                    <button onclick="editRow('row-1780342665004')">Edit</button>
-                    <button onclick="deleteRow('row-1780342665004')">Delete</button>
-                </td>
-            </tr>
         </tbody>
     </table>
 
