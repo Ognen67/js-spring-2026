@@ -10,6 +10,24 @@
 </head>
 
 <body>
+
+    <div>
+        <div style="display: flex; justify-content: space-between;">
+             <h1>TV Shows</h1>
+             <div style="display: flex; gap: 12px; align-items: center;">
+                <p id="user-greeting"></p>
+                <button onclick="logout()">Logout</button>
+             </div>
+        </div>
+
+        <div id="show-filters">
+            <button onclick="showAll()">All Shows</button>
+            <button onclick="showFavorites()">Favorites</button>
+            <input id="search-input" type="text" placeholder="Search tv show">
+            <button onclick="searchShows()">Search</button>
+        </div>
+    </div>
+
     <div id="shows-container">
 
     </div>

@@ -58,14 +58,13 @@ formElement.addEventListener("submit", (event) => {
 
     if (editBookId) {
         const book = books.find(book => book.id === editBookId)
-        // const row = document.getElementById(editBookId)
 
         book.bookTitle = formElement.elements['book-title'].value
         book.bookAuthor = formElement.elements['book-author'].value
         book.bookYear = formElement.elements['book-year'].value
         book.bookGenre = formElement.elements['book-genre'].value
 
-        localStorage.setItem("books", JSON.stringify(books))
+        localStorageSetItem("books", books)
         renderBooks()
 
         // update submit button
@@ -77,20 +76,6 @@ formElement.addEventListener("submit", (event) => {
         editBookId = null
     } else {
         const bookId = 'book-' + Date.now()
-        // const row = document.createElement("tr")
-        // row.id = bookId
-
-        // row.innerHTML =
-        //     `
-        //     <td>${title}</td>
-        //     <td>${author}</td>
-        //     <td>${year}</td>
-        //     <td>${genre}</td>
-        //     <td>
-        //         <button onclick="editRow('${bookId}')">Edit</button>
-        //         <button onclick="deleteRow('${bookId}')">Delete</button>
-        //     </td>
-        // `
 
         const newBook = {
             id: bookId,
@@ -102,22 +87,23 @@ formElement.addEventListener("submit", (event) => {
 
         books.push(newBook)
 
-        localStorage.setItem("books", JSON.stringify(books))
+        localStorageSetItem("books", books)
         renderBooks()
-
-        // booksTable.appendChild(row)
     }
 
     formElement.reset()
 })
 
+function localStorageSetItem(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
 
 function deleteRow(bookId) {
     books = books.filter(book => book.id !== bookId)
-    localStorage.setItem("books", JSON.stringify(books))
-    renderBooks()
 
-    // document.getElementById(bookId).remove()
+    localStorageSetItem("books", books)
+    renderBooks()
 }
 
 function editRow(bookId) {

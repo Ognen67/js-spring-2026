@@ -4,6 +4,10 @@
     gap: 12px;
 }
 
+#show-filters {
+    margin-bottom: 24px;
+}
+
 .show {
     display: flex;
     flex-direction: column;
@@ -12,7 +16,35 @@
     gap: 8px;
     width: 220px;
     border-radius: 16px;
+    position: relative;
 }
+
+.fav-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px !important;
+    display: none !important;
+    color: #ff7400;
+}
+
+.fav-icon.is-fav {
+    display: block !important;
+}
+
+.fav-icon:hover {
+    color: #c25801;
+    cursor: pointer;
+}
+
+.fav-icon:active {
+    color: #a74b00;
+}
+.show:hover .fav-icon {
+    display: block !important;
+    transition: 0.2s ease !important;
+}
+
 
 .show-inner {
     height: 100%;

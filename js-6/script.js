@@ -1,5 +1,18 @@
 const showsContainer = document.getElementById("shows-container")
 
+let allShows = []
+let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+console.log(favorites);
+
+let onFavorites = false
+
+const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+if(!currentUser) {
+    window.location.href = "login.html"
+}
+
+document.getElementById("user-greeting").innerText = `Hello ${currentUser.username}`
+
 async function getShows() {
     const response = await fetch("https://api.tvmaze.com/shows")
     const shows = await response.json()
@@ -9,7 +22,43 @@ async function getShows() {
     return shows
 }
 
+function showAll() {
+    onFavorites = false
+    populateShows(allShows)
+}
+
+function logout() {
+    localStorage.removeItem("currentUser")
+    window.location.href = "login.html"
+}
+
+function showFavorites() {
+    onFavorites = true
+    const favoriteShows = allShows.filter(show => favorites.includes(show.id))
+    console.log(favoriteShows);
+    
+    populateShows(favoriteShows)
+}
+
+function searchShows() {
+    const searchInputValue = document.getElementById("search-input").value.toLowerCase().trim()
+
+    let filteredShows = allShows
+    if(onFavorites === true) {
+        console.log(onFavorites);
+        
+        filteredShows = filteredShows.filter(show => favorites.includes(show.id))
+    }
+
+    filteredShows = filteredShows.filter(show => show.name.toLowerCase().includes(searchInputValue))
+
+
+    
+    populateShows(filteredShows)
+}
+
 function populateShows(shows) {
+    showsContainer.innerHTML = ''
     shows.forEach(show => {
 
         let rating = ""
@@ -62,7 +111,7 @@ function populateShows(shows) {
         const showFooterDiv = document.createElement("div")
         showFooterDiv.classList.add("show-footer")
 
-        if(show.officialSite) {
+        if (show.officialSite) {
             const officialSiteLink = document.createElement("a")
             officialSiteLink.href = show.officialSite
             officialSiteLink.innerText = "Official Site"
@@ -80,8 +129,32 @@ function populateShows(shows) {
         showDivElement.appendChild(showImage)
         showDivElement.appendChild(showInnerDiv)
 
+        const favoriteIcon = document.createElement("i")
+        favoriteIcon.classList.add("fa", "fa-bookmark", "fav-icon")
+
+        favoriteIcon.addEventListener("click", () => {
+            if (favorites.includes(show.id)) {
+                favorites = favorites.filter(f => f !== show.id)
+                favoriteIcon.classList.remove("is-fav")
+            } else {
+                favorites.push(show.id)
+                favoriteIcon.classList.add("is-fav")
+            }
+
+            localStorage.setItem("favorites", JSON.stringify(favorites))
+        })
+
+        if (favorites.includes(show.id)) {
+            favoriteIcon.classList.add("is-fav")
+        }
+
+        showDivElement.appendChild(favoriteIcon)
+
         showsContainer.appendChild(showDivElement)
     })
 }
 
-getShows().then(shows => populateShows(shows))
+getShows().then(shows => {
+    allShows = shows
+    populateShows(allShows)
+})
