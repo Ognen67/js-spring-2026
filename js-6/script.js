@@ -51,8 +51,6 @@ function searchShows() {
     }
 
     filteredShows = filteredShows.filter(show => show.name.toLowerCase().includes(searchInputValue))
-
-
     
     populateShows(filteredShows)
 }
