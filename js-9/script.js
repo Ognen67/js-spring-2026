@@ -16,16 +16,21 @@ const generateShortId = () => {
 
 console.log(generateShortId());
 
-
 const laptop = new Product("Laptop", 1200, "Electronics")
 const phone = new Product("Phone", 800, "Electronics")
 const monitor = new Product("Monitor", 500, "Electronics")
 
 class User {
+    static userCount = 0
     constructor(name, email) {
         this.name = name
         this.email = email
         this.cart = []
+        User.userCount++
+    }
+
+    static testMethod() {
+        console.log("static test method");
     }
 
     addToCart(product) {
@@ -37,7 +42,7 @@ class User {
     removeFromCart(id) {
         this.cart = this.cart.filter(p => p.id !== id)
         console.log(this.cart);
-        
+
         renderCart()
     }
 
@@ -52,7 +57,7 @@ class User {
         }
     }
 
-    goToCheckout() {
+    getCheckoutSum() {
         let sum = 0
         this.cart.forEach(p => {
             sum += p.price
@@ -66,7 +71,24 @@ class User {
     }
 }
 
+class AdminUser extends User {
+    static adminUserCount = 0
+    constructor(name, email, accessLevel) {
+        super(name, email)
+        this.accessLevel = accessLevel
+        AdminUser.adminUserCount++
+    }
+}
+
 const user = new User("Ognen", "ognen@gmail.com")
+const adminUser = new AdminUser("Admin", "admin@gmail.com", "superAdmin")
+
+console.log(`total usercount: ${User.userCount}`);
+console.log(`admin usercount: ${AdminUser.adminUserCount}`);
+
+User.testMethod()
+
+adminUser.accessLevel
 
 const products = [laptop, phone, monitor]
 
@@ -105,7 +127,11 @@ function renderCart() {
 
 const checkoutBtn = document.getElementById("checkout-btn")
 checkoutBtn.addEventListener('click', () => {
-    document.getElementById("total").innerHTML = user.goToCheckout()
+    const isConfirmed = confirm(`Do you want to pay: ${user.getCheckoutSum()}eur`)
+    if (isConfirmed) {
+        alert("Uspesno plativte")
+    }
+    // document.getElementById("total").innerHTML = user.getCheckoutSum()
 })
 
 renderProducts()
@@ -115,7 +141,7 @@ renderProducts()
 
 user.showCart()
 
-user.goToCheckout()
+user.getCheckoutSum()
 
 user.clearCart()
 

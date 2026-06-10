@@ -11,7 +11,6 @@
 //     genre: "saadsas"
 // }
 
-
 // const books = [book1, book2]
 
 // books.forEach(book => {
@@ -47,6 +46,9 @@ class Student {
         return this.avg >= 8
     }
 }
+
+// dynamically typed language
+// statically typed language
 
 const student1 = new Student("Ana", "Petrova", 9.2, "Skopje")
 const student2 = new Student("Marko", "Ristoov", 7.5, "Bitola")
